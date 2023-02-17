@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\EstablishmentsRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: EstablishmentsRepository::class)]
@@ -38,6 +39,9 @@ class Establishments
 
     #[ORM\ManyToMany(targetEntity: Users::class, inversedBy: 'establishments')]
     private Collection $users;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $creation_date = null;
 
     public function __construct()
     {
@@ -153,6 +157,18 @@ class Establishments
     public function removeUsers(Users $users): self
     {
         $this->users->removeElement($users);
+
+        return $this;
+    }
+
+    public function getCreationDate(): ?\DateTimeInterface
+    {
+        return $this->creation_date;
+    }
+
+    public function setCreationDate(\DateTimeInterface $creation_date): self
+    {
+        $this->creation_date = $creation_date;
 
         return $this;
     }

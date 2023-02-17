@@ -46,6 +46,12 @@ class Images
     #[ORM\ManyToMany(targetEntity: Users::class, mappedBy: 'favoris')]
     private Collection $favoris;
 
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $creation_date = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $modification_date = null;
+
     public function __construct()
     {
         $this->lists = new ArrayCollection();
@@ -229,6 +235,30 @@ class Images
         if ($this->favoris->removeElement($favori)) {
             $favori->removeFavori($this);
         }
+
+        return $this;
+    }
+
+    public function getCreationDate(): ?\DateTimeInterface
+    {
+        return $this->creation_date;
+    }
+
+    public function setCreationDate(\DateTimeInterface $creation_date): self
+    {
+        $this->creation_date = $creation_date;
+
+        return $this;
+    }
+
+    public function getModificationDate(): ?\DateTimeInterface
+    {
+        return $this->modification_date;
+    }
+
+    public function setModificationDate(\DateTimeInterface $modification_date): self
+    {
+        $this->modification_date = $modification_date;
 
         return $this;
     }
