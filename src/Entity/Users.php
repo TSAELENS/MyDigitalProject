@@ -391,4 +391,9 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, Timest
 
         return $this;
     }
+
+    public function __toString(): string
+    {
+        return $this->last_name;
+    }
 }

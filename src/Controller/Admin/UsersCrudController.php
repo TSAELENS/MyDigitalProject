@@ -7,6 +7,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CountryField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TelephoneField;
@@ -30,12 +31,13 @@ class UsersCrudController extends AbstractCrudController
     {
         yield TextField::new('first_name');
         yield TextField::new('last_name');
+        yield SlugField::new('slug')
+            ->setTargetFieldName('last_name')
+            ->onlyOnForms();
         yield EmailField::new('email');
         yield TextField::new('password')
-        ->setFormType(PasswordType::class)
-        ->onlyOnForms();
-        yield SlugField::new('slug')
-            ->setTargetFieldName('email');
+            ->setFormType(PasswordType::class)
+            ->onlyOnForms();
         yield ChoiceField::new('roles')
             ->allowMultipleChoices()
             ->renderAsBadges([
@@ -50,6 +52,10 @@ class UsersCrudController extends AbstractCrudController
         yield TextField::new('city');
         yield CountryField::new('country');
         yield TelephoneField::new('phone');
+        yield DateField::new('creation_date')
+            ->hideOnForm();
+        yield DateField::new('update_date')
+            ->hideOnForm();
     }
 
     public function persistEntity(EntityManagerInterface $entityManager, $entityInstance): void
