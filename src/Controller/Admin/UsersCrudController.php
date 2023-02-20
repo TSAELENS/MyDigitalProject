@@ -42,11 +42,15 @@ class UsersCrudController extends AbstractCrudController
         yield ChoiceField::new('roles')
             ->allowMultipleChoices()
             ->renderAsBadges([
+                'ROLE_SUPER_ADMIN' => 'danger',
                 'ROLE_ADMIN' => 'warning',
+                'ROLE_TATTLER' => 'info',
                 'ROLE_USER' => 'success'
             ])
             ->setChoices([
-                'Administrateur' =>'ROLE_ADMIN',
+                'Super Admin' => 'ROLE_SUPER_ADMIN',
+                'Gérant' => 'ROLE_ADMIN',
+                'Tattoueur' => 'ROLE_TATTLER',
                 'Utilisateur' => 'ROLE_USER'
             ]);
         yield TextField::new('address');
