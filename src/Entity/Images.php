@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Model\TimestampedInterface;
 use App\Repository\ImagesRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -9,7 +10,7 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ImagesRepository::class)]
-class Images
+class Images implements TimestampedInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -26,7 +27,7 @@ class Images
     private ?string $image = null;
 
     #[ORM\Column]
-    private ?int $likes = null;
+    private ?int $likes = 0;
 
     #[ORM\Column(nullable: true)]
     private array $tags = [];
@@ -49,8 +50,8 @@ class Images
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $creation_date = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $modification_date = null;
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable:true)]
+    private ?\DateTimeInterface $update_date = null;
 
     public function __construct()
     {
@@ -251,14 +252,14 @@ class Images
         return $this;
     }
 
-    public function getModificationDate(): ?\DateTimeInterface
+    public function getUpdateDate(): ?\DateTimeInterface
     {
-        return $this->modification_date;
+        return $this->update_date;
     }
 
-    public function setModificationDate(\DateTimeInterface $modification_date): self
+    public function setUpdateDate(\DateTimeInterface $update_date): self
     {
-        $this->modification_date = $modification_date;
+        $this->update_date = $update_date;
 
         return $this;
     }
