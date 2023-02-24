@@ -2,15 +2,22 @@
     <div>
         <a href="{{ path('app_home') }}"><img src="" label="logo"/></a>
         <div>
-            <div><div>
+            <div>
+                <p>Découvrir</p>
+            <div>
+            <a href="#">Pour vous</a>
+            <a href="#">Engager</a>
+            <a href="#">Offres d'emplois</a>
+            <a href="#">Event</a>
         </div>
     </div>
     <div>
         {% if app.user %}
-        <a href="#">Mon compte</a>
-        <a href="/logout">Déconnection</a>
+            <a href="#">Mon compte</a>
+            <a href="/logout">Déconnection</a>
         {% else %}
-        <a href="/login">Se connecter</a>
+            <a href="{{ path("app_login") }}">Se connecter</a>
+            <a href="/register">S'inscrire</a>
         {% endif %}
     </div>
 </div>
