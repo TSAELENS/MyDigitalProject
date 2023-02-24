@@ -1,0 +1,16 @@
+<div>
+    <div>
+        <a href="{{ path('app_home') }}"><img src="" label="logo"/></a>
+        <div>
+            <div><div>
+        </div>
+    </div>
+    <div>
+        {% if app.user %}
+        <a href="#">Mon compte</a>
+        <a href="/logout">Déconnection</a>
+        {% else %}
+        <a href="/login">Se connecter</a>
+        {% endif %}
+    </div>
+</div>
