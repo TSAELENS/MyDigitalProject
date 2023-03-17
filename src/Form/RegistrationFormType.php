@@ -15,19 +15,24 @@ use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Cocur\Slugify\Slugify;
+use DateTimeImmutable;
+use Symfony\Component\Form\Extension\Core\Type\CountryType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class RegistrationFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('last_name')
-            ->add('first_name')
-            ->add('address')
-            ->add('city')
-            ->add('country')
-            ->add('phone')
-            ->add('email')
+            ->add('last_name', TextType::class)
+            ->add('first_name', TextType::class)
+            ->add('address', TextType::class)
+            ->add('city', TextType::class)
+            ->add('country', CountryType::class)
+            ->add('phone', TelType::class)
+            ->add('email', EmailType::class)
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [
@@ -54,13 +59,15 @@ class RegistrationFormType extends AbstractType
                 ],
             ])
             ->add('slug', HiddenType::class)
-            ->add('creation_date', HiddenType::class, [
-                'data' => new \DateTimeImmutable(),
-            ])
-            ->add('update_date', HiddenType::class, [
-                'data' => new \DateTimeImmutable(),
-            ]);
         ;
+
+        $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) {
+            $user = $event->getData();
+            if (!$user || !$user->getId()) { // Only set default values for new users
+                $user->setCreationDate(new DateTimeImmutable());
+                $user->setUpdateDate(new DateTimeImmutable());
+            }
+        });
 
         $builder->addEventListener(FormEvents::POST_SUBMIT, function (FormEvent $event) {
             $user = $event->getData();
