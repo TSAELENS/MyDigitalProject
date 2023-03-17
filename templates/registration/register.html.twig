@@ -3,7 +3,22 @@
 {% block title %}S'inscrire{% endblock %}
 
 {% block body %}
-    <h1>S'inscrire</h1>
+<div class="bloc_register">
+    <div class="left_register">
+        <p class="title_register">Bienvenue sur notre plateforme dédiée au monde du tatouage !</p>
+        <p class="text1_register">
+        Si vous êtes un professionnel du tatouage, vous savez à quel point il peut être difficile d'élargir votre clientèle?!
+        <br>
+        Et si vous êtes un passionné de tatouages, vous savez combien il est important de trouver l'artiste parfait pour vos projets ?!
+        </p>
+        <p class="text2_register">
+        C'est là que notre site entre en jeu ! Nous offrons un service unique qui permet aux professionnels de tatouage de gagner en visibilité et d'attirer des clients du monde entier. <br>
+        Alors, que vous soyez un professionnel ou un passionné, ne manquez pas cette opportunité unique de rejoindre notre communauté et de bénéficier de tous les avantages que notre site peut offrir. Inscrivez-vous dès maintenant et commencez à explorer le monde passionnant du tatouage !
+        </p>
+    </div>
+
+    <div class="right_register">
+    <h1>Créer mon compte :</h1>
 
     {{ form_start(registrationForm) }}
         {{ form_row(registrationForm.last_name) }}
@@ -20,4 +35,6 @@
 
         <button type="submit" class="btn">S'inscrire</button>
     {{ form_end(registrationForm) }}
+    </div>
+</div>
 {% endblock %}

@@ -1,4 +1,106 @@
 body{
     margin: 0 auto;
     width: 80%;
+    background-color: #fff;
 }
+
+/* REGISTER */
+
+/* Style pour le conteneur du formulaire */
+.bloc_register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0 auto;
+    width: 80%;
+  }
+  
+    /* Style pour le conteneur de gauche */
+.left_register {
+    margin-right: 20px;
+  }
+
+  /* Style pour le titre de la page */
+  .title_register {
+    width: 677px;
+    height: 74px;
+    font-family: 'ArponaSans';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 40px;
+    line-height: 37px;
+    color: #000000;
+  }
+
+  /* Style pour le premier paragraphe */
+  .text1_register {
+    width: 675px;
+    height: 48px;
+    font-family: 'Arpona';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 24px;
+    color: #7F2982;
+    margin-bottom: 75px;
+  }
+  
+  /* Style pour le deuxième paragraphe */
+  .text2_register {
+    width: 654px;
+    height: 182px;
+    font-family: 'Arpona';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 26px;
+    color: #000000;
+  }
+  
+  /* Style pour le conteneur de droite */
+  .right_register {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    margin-left: 20px;
+    flex: 1;
+  }
+  
+  /* Style pour le titre du formulaire */
+  .right_register h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+  
+  /* Style pour tous les champs de formulaire */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+  }
+  
+  /* Style pour le bouton de soumission */
+  .btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  /* Style pour les messages d'erreur */
+  .form-error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
