@@ -66,6 +66,7 @@ class RegistrationFormType extends AbstractType
             if (!$user || !$user->getId()) { // Only set default values for new users
                 $user->setCreationDate(new DateTimeImmutable());
                 $user->setUpdateDate(new DateTimeImmutable());
+                $user->setRoles(['ROLE_USER']);
             }
         });
 
