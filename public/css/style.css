@@ -4,6 +4,123 @@ body{
     background-color: #fff;
 }
 
+/* BARRE NAV */
+
+
+.nav-container {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  max-width: 50px;
+  margin-right: 10px;
+}
+
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.menu img {
+  vertical-align: middle;
+  max-width: 15px;
+  margin-left: 5px;
+}
+
+.menu > li {
+  position: relative;
+}
+
+.menu > li > a {
+  display: block;
+  padding: 10px;
+  color: #333;
+  text-decoration: none;
+}
+
+.menu > li:hover > ul {
+  display: block;
+}
+
+.menu > li > ul {
+  position: absolute;
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.menu > li > ul > li {
+  display: block;
+}
+
+.menu > li > ul > li > a {
+  display: block;
+  padding: 10px;
+  color: #333;
+  text-decoration: none;
+}
+
+.account {
+  display: flex;
+  align-items: center;
+}
+
+.account a {
+  margin-right: 20px;
+  text-decoration: none;
+}
+
+.account button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.btn-connexion {
+  border: 1px solid black;
+  background-color: white;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.btn-inscription {
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+
+
 /* REGISTER */
 
 /* Style pour le conteneur du formulaire */
@@ -16,7 +133,7 @@ body{
     width: 80%;
   }
   
-    /* Style pour le conteneur de gauche */
+/* Style pour le conteneur de gauche */
 .left_register {
     margin-right: 20px;
   }
