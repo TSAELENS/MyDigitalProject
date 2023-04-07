@@ -28,11 +28,8 @@ class RegistrationFormType extends AbstractType
         $builder
             ->add('last_name', TextType::class)
             ->add('first_name', TextType::class)
-            ->add('address', TextType::class)
-            ->add('city', TextType::class)
-            ->add('country', CountryType::class)
-            ->add('phone', TelType::class)
             ->add('email', EmailType::class)
+            ->add('role', RoleType::class)
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [
@@ -58,6 +55,7 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
+            ->add('newsletters', CheckboxType::class)
             ->add('slug', HiddenType::class)
         ;
 
