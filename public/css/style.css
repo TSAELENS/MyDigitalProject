@@ -236,54 +236,64 @@ nav {
     font-size: 12px;
     margin-top: 5px;}
 
-    /* LOGIN */
-  
-    /* Style pour le conteneur du formulaire */
-    .bloc_login {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      padding: 50px 0px;
-    }
-  
-    /* Style pour le conteneur du formulaire */
-    .form_login {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 0px 60px;
-      margin: auto;
-    }
-  
-    /* Style pour le titre de la page */
-    .title_login {
-      width: 172px;
-      height: 37px;
-      font-family: 'ArponaSans';
-      font-style: normal;
-      font-weight: 700;
-      font-size: 24px;
-      line-height: 37px;
-    }
-  
-    /* Style pour tous les champs de formulaire */
-    .div_login {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 0px;
-      gap: 8px;
-      width: 100%;
-      margin-bottom: 10px;
-    }
-  
-    /* Style pour les labels */
-    .label_login {
-      font-family: 'Inter';
-      font-style: normal;
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 24px;
-  }
+/* LOGIN */
+
+/* Style pour le conteneur du formulaire */
+.bloc_login {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 0px;
+}
+
+/* Style pour le conteneur du formulaire */
+.form_login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 60px;
+  margin: auto;
+  width: 80%;
+}
+
+/* Style pour le titre de la page */
+.title_login {
+  width: 172px;
+  height: 37px;
+  font-family: 'ArponaSans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 37px;
+}
+
+/* Style pour tous les champs de formulaire */
+.div_login {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 8px;
+  width: 25%;
+  margin-bottom: 20px;
+}
+
+/* Style pour les labels */
+.label_login {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+/* Style pour les inputs */
+.input_login {
+  background: #FFFFFF;
+  border: 1px solid rgba(26, 26, 26, 0.5);
+  border-radius: 4px;
+  width: 100%;
+  height: 30px;
+}
