@@ -1,24 +1,24 @@
 const sliderWrapper = document.querySelector('.slider-wrapper');
-const sliderItems = document.querySelectorAll('.slide');
-const sliderControls = document.querySelectorAll('.slider-control');
+const slides = document.querySelectorAll('.slide');
+const controls = document.querySelectorAll('.slider-controls button');
+const dotsWrapper = document.createElement('div');
+dotsWrapper.classList.add('slider-dots');
 
-let slideWidth = sliderItems[0].clientWidth;
-let slidePosition = 0;
+slides.forEach((slide, index) => {
+  const dot = document.createElement('button');
+  dot.classList.add('slider-dot');
+  dotsWrapper.appendChild(dot);
 
-// écouteur d'événement sur le bouton précédent
-sliderControls[0].addEventListener('click', () => {
-  slidePosition += slideWidth;
-  if (slidePosition >= 0) {
-    slidePosition = -(sliderItems.length - 1) * slideWidth;
-  }
-  sliderWrapper.style.transform = `translateX(${slidePosition}px)`;
+  dot.addEventListener('click', () => {
+    sliderWrapper.style.transform = `translateX(-${index * 100}%)`;
+    setActiveDot(dot);
+  });
 });
 
-// écouteur d'événement sur le bouton suivant
-sliderControls[1].addEventListener('click', () => {
-  slidePosition -= slideWidth;
-  if (slidePosition <= -(sliderItems.length - 1) * slideWidth) {
-    slidePosition = 0;
-  }
-  sliderWrapper.style.transform = `translateX(${slidePosition}px)`;
-});
+function setActiveDot(dot) {
+  document.querySelectorAll('.slider-dot').forEach(d => d.classList.remove('active'));
+  dot.classList.add('active');
+}
+
+document.querySelector('.slider').appendChild(dotsWrapper);
+setActiveDot(document.querySelector('.slider-dot'));
