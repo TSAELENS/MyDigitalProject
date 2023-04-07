@@ -16,11 +16,11 @@ use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Cocur\Slugify\Slugify;
 use DateTimeImmutable;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class RegistrationFormType extends AbstractType
 {
@@ -30,12 +30,15 @@ class RegistrationFormType extends AbstractType
             ->add('last_name', TextType::class)
             ->add('first_name', TextType::class)
             ->add('email', EmailType::class)
-            ->add('roles', ChoiceType::class, [
-                'choices' => [
-                    'Tattler' => 'ROLE_TATTLER',
-                    'User' => 'ROLE_USER',
-                ],
-            ])
+            // ->add('roles', ChoiceType::class, [
+            //     'choices' => [
+            //         'Particulier' => json_encode(['ROLE_USER']),
+            //         'Professionnel' => json_encode(['ROLE_TATTLER']),
+            //     ],
+            //     'expanded' => false,
+            //     'multiple' => false,
+            //     'placeholder' => 'Choisissez un role',
+            // ])
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [
@@ -70,7 +73,7 @@ class RegistrationFormType extends AbstractType
             if (!$user || !$user->getId()) { // Only set default values for new users
                 $user->setCreationDate(new DateTimeImmutable());
                 $user->setUpdateDate(new DateTimeImmutable());
-                //$user->setRoles(['ROLE_USER']);
+                $user->setRoles(['ROLE_USER']);
             }
         });
 
