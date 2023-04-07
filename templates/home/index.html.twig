@@ -3,8 +3,24 @@
 {% block title %}InkLink{% endblock %}
 
 {% block body %}
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}!</h1>
-    <p>NTR PE</p>
+
+<div class="slider">
+  <div class="slider-wrapper">
+    <div class="slide">
+      <img src="../upload/img/img1.jpg" alt="Image 1">
+    </div>
+    <div class="slide">
+      <img src="../upload/img/img2.jpg" alt="Image 2">
+    </div>
+    <div class="slide">
+      <img src="../upload/img/img3.jpg" alt="Image 3">
+    </div>
+  </div>
+  <div class="slider-controls">
+    <button class="slider-control prev"></button>
+    <button class="slider-control next"></button>
+  </div>
 </div>
+
+
 {% endblock %}
