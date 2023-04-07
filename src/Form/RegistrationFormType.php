@@ -16,6 +16,7 @@ use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Cocur\Slugify\Slugify;
 use DateTimeImmutable;
+use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -30,15 +31,15 @@ class RegistrationFormType extends AbstractType
             ->add('last_name', TextType::class)
             ->add('first_name', TextType::class)
             ->add('email', EmailType::class)
-            // ->add('roles', ChoiceType::class, [
-            //     'choices' => [
-            //         'Particulier' => json_encode(['ROLE_USER']),
-            //         'Professionnel' => json_encode(['ROLE_TATTLER']),
-            //     ],
-            //     'expanded' => false,
-            //     'multiple' => false,
-            //     'placeholder' => 'Choisissez un role',
-            // ])
+            ->add('roles', ChoiceType::class, [
+                'choices' => [
+                    'Particulier' => 'ROLE_USER',
+                    'Professionnel' => 'ROLE_TATTLER',
+                ],
+                'expanded' => false,
+                'multiple' => false,
+                'placeholder' => 'Choisissez un role',
+            ])
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [
@@ -68,12 +69,24 @@ class RegistrationFormType extends AbstractType
             ->add('slug', HiddenType::class)
         ;
 
+        $builder->get('roles')
+            ->addModelTransformer(new CallbackTransformer(
+                function ($rolesArray) {
+                     // transform the array to a string
+                     return count($rolesArray)? $rolesArray[0]: null;
+                },
+                function ($rolesString) {
+                     // transform the string back to an array
+                     return [$rolesString];
+                }
+        ));
+
         $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) {
             $user = $event->getData();
             if (!$user || !$user->getId()) { // Only set default values for new users
                 $user->setCreationDate(new DateTimeImmutable());
                 $user->setUpdateDate(new DateTimeImmutable());
-                $user->setRoles(['ROLE_USER']);
+                // $user->setRoles(['ROLE_USER']);
             }
         });
 
