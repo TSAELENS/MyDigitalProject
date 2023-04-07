@@ -27,6 +27,7 @@ nav {
 }
 
 .logo img {
+  vertical-align: middle;
   max-width: 50px;
   margin-right: 10px;
 }
@@ -82,6 +83,11 @@ nav {
   text-decoration: none;
 }
 
+.menu > li > a:hover {
+  color: rgb(221, 19, 221);
+}
+
+
 .account {
   display: flex;
   align-items: center;
@@ -92,16 +98,6 @@ nav {
   text-decoration: none;
 }
 
-.account button {
-  background-color: #333;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-
 .btn-connexion {
   border: 1px solid black;
   background-color: white;
@@ -109,7 +105,15 @@ nav {
   padding: 10px 20px;
   border-radius: 5px;
   text-decoration: none;
+  border: 1px solid black;
 }
+
+.btn-connexion:hover {
+  background-color: black;
+  color: white;
+  border:1px solid white ;
+}
+
 
 .btn-inscription {
   background-color: black;
@@ -117,8 +121,15 @@ nav {
   padding: 10px 20px;
   border-radius: 5px;
   text-decoration: none;
+  border:1px solid white ;
 }
 
+.btn-inscription:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+
+}
 
 
 /* REGISTER */
@@ -179,8 +190,6 @@ nav {
   .right_register {
     background-color: #fff;
     padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     margin-left: 20px;
     flex: 1;
   }
@@ -192,10 +201,7 @@ nav {
   }
   
   /* Style pour tous les champs de formulaire */
-  input[type="text"],
-  input[type="email"],
-  input[type="tel"],
-  input[type="password"] {
+.right_register input{
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
