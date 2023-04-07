@@ -211,12 +211,14 @@ footer button[type="submit"]:hover {
 .slide {
   flex-shrink: 0;
   width: 100%;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 .slide img {
   display: block;
-  max-width: 100%;
-  height: auto;
+  width:100vh;
+  height: 50vh;
 }
 
 .slider-dots {
