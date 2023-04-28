@@ -12,6 +12,13 @@
   <img class="img_home" src="../upload/img/img_home.png">
 </div>
 
+<form class="search-form" action="{{ path('app_home') }}" method="GET">
+  <input class="search-input" type="text" placeholder="Recherche" name="q">
+  <button class="search-btn" type="submit">Rechercher</button>
+  <button class="sort-btn" type="button">Trier par date</button>
+  <button class="sort-btn" type="button">Trier par popularité</button>
+</form>
+
 {% include 'home/list.html.twig' with { data } %}
 
 {% endblock %}

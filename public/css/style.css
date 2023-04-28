@@ -207,7 +207,7 @@ footer button[type="submit"]:hover {
   align-items: center; /* Centre verticalement les éléments */
   padding: 5vw 0;
   gap: 1rem;
-  max-width: 80vw;
+  max-width: 50vw;
   height: auto;
   flex: none;
   order: 1;
@@ -230,18 +230,18 @@ footer button[type="submit"]:hover {
 .big_text_home{
   width: 100%;
   max-width: 50ch;
-  font-size: 4vw;
-  line-height: 1.2;
-  /* or 91% */
+  font-weight: 700;
+  font-size: 55px;
+  line-height: 91%;
   margin: 0; /* Ajoute une marge par défaut */
 }
 
 .small_text_home{
   width: 100%;
   max-width: 50ch;
-  font-size: 1.5vw;
-  line-height: 1.4;
-  /* or 125% */
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 125%;
   color: #FFFFFF;
   margin: 0; /* Ajoute une marge par défaut */
 }
@@ -255,8 +255,84 @@ footer button[type="submit"]:hover {
   order: 1; /* Change l'ordre d'affichage */
   max-width: 100%;
   height: auto;
+  margin-left: 80px;
 }
 
+.btn_home{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  width: 391px;
+  height: 57px;
+
+  background: #EBA900;
+  border-radius: 4px;
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+
+  margin-top: -80px;
+  margin-bottom: 50px;
+}
+.btn_text_home{
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 100%;
+  text-decoration: none;
+  /* identical to box height, or 100% */
+
+  color: #FFFFFF;
+
+}
+
+.search_home{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 5px 0px;
+
+  width: 1297px;
+  height: 58px;
+
+  filter: drop-shadow(0px 0px 14px rgba(36, 35, 35, 0.28)) drop-shadow(0px 0px 8.19907px rgba(36, 35, 35, 0.212593)) drop-shadow(0px 0px 4.45926px rgba(36, 35, 35, 0.170074)) drop-shadow(0px 0px 2.275px rgba(36, 35, 35, 0.14)) drop-shadow(0px 0px 1.14074px rgba(36, 35, 35, 0.109926)) drop-shadow(0px 0px 0.550926px rgba(36, 35, 35, 0.0674074));
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+}
+.search-form {
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 6px 10px;
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.search-btn,
+.sort-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 10px;
+  margin-left: 5px;
+  font-size: 16px;
+}
+
+.sort-btn {
+  background-color: #6c757d;
+}
 
 
 /* REGISTER */
