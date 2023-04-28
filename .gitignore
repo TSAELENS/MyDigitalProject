@@ -26,3 +26,4 @@ public/.DS_Store
 public/upload/.DS_Store
 public/upload/img/.DS_Store
 .DS_Store
+.env
