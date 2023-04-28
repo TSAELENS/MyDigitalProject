@@ -1,8 +1,13 @@
+
+
+
 body{
     margin: 0 auto;
     width: 80%;
     background-color: #282525;
     color: white;
+    font-family: 'ArponaSans';
+    font-style: normal;
 }
 
 /* BARRE NAV */
@@ -195,19 +200,63 @@ footer button[type="submit"]:hover {
 
 
 /* HOME */
-
 .banner_home{
-  justify-content: space-around;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* Ajoute un espace entre les éléments */
+  align-items: center; /* Centre verticalement les éléments */
+  padding: 5vw 0;
+  gap: 1rem;
+  max-width: 80vw;
+  height: auto;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
 }
+
+.banner_text_home{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  gap: 1rem;
+  max-width: 70vw;
+  height: auto;
+  order: 0; /* Change l'ordre d'affichage */
+  flex-grow: 0;
+  z-index: 1;
+}
+
 .big_text_home{
-
+  width: 100%;
+  max-width: 50ch;
+  font-size: 4vw;
+  line-height: 1.2;
+  /* or 91% */
+  margin: 0; /* Ajoute une marge par défaut */
 }
+
 .small_text_home{
-
+  width: 100%;
+  max-width: 50ch;
+  font-size: 1.5vw;
+  line-height: 1.4;
+  /* or 125% */
+  color: #FFFFFF;
+  margin: 0; /* Ajoute une marge par défaut */
 }
+
 .violet{
   color:#8F00FE;
 }
+
+.img_home {
+  flex: none;
+  order: 1; /* Change l'ordre d'affichage */
+  max-width: 100%;
+  height: auto;
+}
+
 
 
 /* REGISTER */
@@ -231,8 +280,6 @@ footer button[type="submit"]:hover {
   .title_register {
     width: 677px;
     height: 74px;
-    font-family: 'ArponaSans';
-    font-style: normal;
     font-weight: 900;
     font-size: 40px;
     line-height: 37px;
@@ -243,8 +290,6 @@ footer button[type="submit"]:hover {
   .text1_register {
     width: 675px;
     height: 48px;
-    font-family: 'Arpona';
-    font-style: normal;
     font-weight: 600;
     font-size: 24px;
     line-height: 24px;
@@ -256,8 +301,6 @@ footer button[type="submit"]:hover {
   .text2_register {
     width: 654px;
     height: 182px;
-    font-family: 'Arpona';
-    font-style: normal;
     font-weight: 400;
     font-size: 17px;
     line-height: 26px;
@@ -340,8 +383,6 @@ footer button[type="submit"]:hover {
 .title_login {
   width: 172px;
   height: 37px;
-  font-family: 'ArponaSans';
-  font-style: normal;
   font-weight: 700;
   font-size: 24px;
   line-height: 37px;
@@ -360,8 +401,6 @@ footer button[type="submit"]:hover {
 
 /* Style pour les labels */
 .label_login {
-  font-family: 'Inter';
-  font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
@@ -401,16 +440,12 @@ footer button[type="submit"]:hover {
 }
 
 .card_title {
-  font-family: 'Inter';
-  font-style: normal;
   font-weight: 700;
   font-size: 16px;
   line-height: 24px;
 }
 
 .card_creator {
-  font-family: 'Inter';
-  font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 22px;
