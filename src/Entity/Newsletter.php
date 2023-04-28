@@ -8,6 +8,11 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: NewsletterRepository::class)]
 class Newsletter
 {
+    public function __construct()
+    {
+        $this->subscribe = true;
+    }
+    
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]

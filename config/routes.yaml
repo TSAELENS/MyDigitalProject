@@ -3,3 +3,7 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+newsletter_subscribe:
+    path: /newsletter/subscribe
+    methods: ['POST']
+    controller: App\Controller\NewsletterController::subscribe
