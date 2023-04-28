@@ -28,8 +28,8 @@ class ImagesCrudController extends AbstractCrudController
             ->onlyOnForms();
         yield TextEditorField::new('description');
         yield ImageField::new('image')
-            ->setUploadDir('/public/uploads/img/')
-            ->setBasePath('uploads/img/');
+            ->setUploadDir('/public/upload/img/')
+            ->setBasePath('upload/img/');
         yield IntegerField::new('like')
             ->hideOnForm();
         yield CollectionField::new('tags');
