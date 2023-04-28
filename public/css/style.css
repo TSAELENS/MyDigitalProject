@@ -299,8 +299,6 @@ footer button[type="submit"]:hover {
   
   height: 58px;
   
-  filter: drop-shadow(0px 0px 14px rgba(36, 35, 35, 0.28)) drop-shadow(0px 0px 8.19907px rgba(36, 35, 35, 0.212593)) drop-shadow(0px 0px 4.45926px rgba(36, 35, 35, 0.170074)) drop-shadow(0px 0px 2.275px rgba(36, 35, 35, 0.14)) drop-shadow(0px 0px 1.14074px rgba(36, 35, 35, 0.109926)) drop-shadow(0px 0px 0.550926px rgba(36, 35, 35, 0.0674074));
-  
   /* Inside auto layout */
   flex: none;
   order: 2;
