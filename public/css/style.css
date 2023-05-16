@@ -9,7 +9,6 @@ body{
     font-family: 'ArponaSans';
     font-style: normal;
 }
-
 /* BARRE NAV */
 
 
@@ -19,18 +18,21 @@ body{
   justify-content: space-between;
   align-items: center;
   padding: 10px;
+  width: 100%; /* assure que la barre de navigation prend toute la largeur */
 }
 
 nav {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  flex-grow: 1;
+  width: 180%;
 }
 
 .logo {
   display: flex;
   align-items: center;
   color: #8F00FE;
+  order: 1;
 }
 
 .logo img {
@@ -39,14 +41,38 @@ nav {
   margin-right: 10px;
 }
 
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  order: 2;
+  padding: 0;  /* Assurez-vous qu'il n'y a pas de padding supplémentaire */
+  margin: 0;  /* Assurez-vous qu'il n'y a pas de marge supplémentaire */
+  box-sizing: border-box; /* Assurez-vous que la taille de la boîte inclut le padding et la bordure */
+}
+
+
+.hamburger div {
+  width: 2rem;
+  height: 0.25rem;
+  background-color: #fff;
+  border-radius: 10px;
+  transition: all 0.3s linear;
+}
+
 .menu {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
-  flex-grow: 1;
+  order: 2;
+  transition: all 0.3s;
 }
+
 
 .menu img {
   vertical-align: middle;
@@ -96,10 +122,30 @@ nav {
   color: #8F00FE;
 }
 
+.menu.active {
+  display: flex;
+  width: 100%;
+}
 
+
+.hamburger.open div:nth-child(1) {
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.hamburger.open div:nth-child(2) {
+  /* Dissimulation du deuxième barreau du hamburger */
+  opacity: 0;
+}
+
+.hamburger.open div:nth-child(3) {
+  transform: rotate(45deg) translate(-9px, -6px);
+}
 .account {
   display: flex;
   align-items: center;
+  order: 3;
+  width: 100%;
+  justify-content: right;
 }
 
 .account a {
@@ -115,17 +161,16 @@ nav {
   padding: 10px 20px;
   border-radius: 5px;
   text-decoration: none;
-}
-
-.btn-connexion:hover {
+  }
+  
+  .btn-connexion:hover {
   transition: 0.3s;
   background-color: #EBA900;
   color: white;
   border:1px solid #EBA900 ;
-}
-
-
-.btn-inscription {
+  }
+  
+  .btn-inscription {
   transition: 0.3s;
   background-color: #EBA900;
   color: white;
@@ -133,16 +178,46 @@ nav {
   border-radius: 5px;
   text-decoration: none;
   border:1px solid #EBA900 ;
-}
-
-.btn-inscription:hover {
+  }
+  
+  .btn-inscription:hover {
   transition: 0.3s;
   background-color: #282525;
   color: white;
   border: 1px solid #EBA900;
+  
+  }
+ /* NAV RESPONSIVE */
+@media (max-width: 900px) {
+  .nav-container {
+    flex-wrap: wrap;
+  }
 
+  .logo, .hamburger {
+    flex: 1 0;
+  }
+
+  .logo {
+    order: 1;
+  }
+
+  .menu {
+    flex-direction: column;
+    display: none;
+    order: 3;
+  }
+
+  .hamburger {
+    display: flex;
+    order: 2;
+  }
+
+  .account {
+    order: 4;
+    width: 100%;
+    justify-content: center;
+  }
 }
-
 
 /* FOOTER */
 
@@ -315,6 +390,40 @@ footer button[type="submit"]:hover {
 
 }
 
+
+/*HOME RESPONSIVE*/
+@media (max-width: 900px) {
+  .banner_home{
+    flex-direction: column;
+    padding: 2vw 0;
+  }
+
+  .banner_text_home{
+    max-width: 90vw;
+  }
+
+  .big_text_home{
+    font-size: 40px;
+  }
+
+  .small_text_home{
+    font-size: 18px;
+  }
+
+  .img_home {
+    margin-left: 0;
+  }
+
+  .btn_home{
+    width: 80%;
+    height: 40px;
+  }
+  
+  .btn_text_home{
+    font-size: 18px;
+  }
+}
+
 /*SEARCH*/
 .search_home{
   display: flex;
@@ -341,8 +450,7 @@ footer button[type="submit"]:hover {
   padding: 12px 16px;
   gap: 8px;
   
-  width: 831px;
-  height: 48px;
+  width:80%;
   
   background: #332F2F;
 
@@ -364,8 +472,8 @@ footer button[type="submit"]:hover {
 box-sizing: border-box;
 padding: 12px 16px;
 gap: 8px;
-width: 831px;
-height: 48px;
+  
+width:80%;
 background: #332F2F;
 flex: none;
 order: 0;

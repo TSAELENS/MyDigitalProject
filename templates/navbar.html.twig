@@ -4,21 +4,25 @@
       <a href="{{ path('app_home') }}"><img src="../upload/img/logo.png" alt="Logo"></a>
       <h1>InkLink</h1>
     </div>
-     <ul class="menu">
+    <div class="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <ul class="menu">
       <li><a href="#">Découvrir</a></li>
-        <li><a href="#">Trouver son tatoueur</a></li>
-        <li><a href="#">Annonces</a></li>
-        <li><a href="#">Évènements</a></li>
+      <li><a href="#">Trouver son tatoueur</a></li>
+      <li><a href="#">Annonces</a></li>
+      <li><a href="#">Évènements</a></li>
     </ul>
-        <div class="account">
-        {% if app.user %}
-            <a href="#">Mon compte</a>
-            <a href="/logout">Déconnexion</a>
-        {% else %}
-            <a href="{{ path("app_login") }}" class="btn-connexion">Se connecter</a>
-            <a href="/register" class="btn-inscription">S'inscrire</a>
-        {% endif %}
-        </div>
-
   </nav>
+  <div class="account">
+    {% if app.user %}
+        <a href="#">Mon compte</a>
+        <a href="/logout">Déconnexion</a>
+    {% else %}
+        <a href="{{ path("app_login") }}" class="btn-connexion">Se connecter</a>
+        <a href="/register" class="btn-inscription">S'inscrire</a>
+    {% endif %}
+  </div>
 </div>
