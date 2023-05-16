@@ -84,6 +84,7 @@ nav {
 }
 
 .menu > li > ul > li > a {
+  transition: 0.3s;
   display: block;
   padding: 10px;
   color: #333;
@@ -91,6 +92,7 @@ nav {
 }
 
 .menu > li > a:hover {
+  transition: 0.3s;
   color: #8F00FE;
 }
 
@@ -106,6 +108,7 @@ nav {
 }
 
 .btn-connexion {
+  transition: 0.3s;
   border: 1px solid #EBA900;
   background-color: #282525;
   color: white;
@@ -115,6 +118,7 @@ nav {
 }
 
 .btn-connexion:hover {
+  transition: 0.3s;
   background-color: #EBA900;
   color: white;
   border:1px solid #EBA900 ;
@@ -122,6 +126,7 @@ nav {
 
 
 .btn-inscription {
+  transition: 0.3s;
   background-color: #EBA900;
   color: white;
   padding: 10px 20px;
@@ -131,6 +136,7 @@ nav {
 }
 
 .btn-inscription:hover {
+  transition: 0.3s;
   background-color: #282525;
   color: white;
   border: 1px solid #EBA900;
@@ -158,9 +164,24 @@ footer {
   margin-right: 10px;
 }
 
-.footer_text {
+.footer_text_block{
+  margin-left: 12%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  margin: 20px 0;
+  width: 70%;
+  padding: 40px;
+  margin-top: -45px;
+  background: #1D1B1B;
+  
+}
+
+.footer_text {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 footer input[type="email"] {
@@ -174,16 +195,21 @@ footer input[type="email"] {
 }
 
 footer button[type="submit"] {
+  transition: 0.3s;
   padding: 12px 20px;
-  background-color: #1A1A1A;
+  background-color: #EBA900;
   border-radius: 4px;
+  border: 1px solid #EBA900;
   color: #fff;
-  border: none;
   cursor: pointer;
 }
 
 footer button[type="submit"]:hover {
-  background-color: #8F00FE;
+  transition: 0.3s;
+  background-color: #282525;
+  color: white;
+  border-radius: 4px;
+  border: 1px solid #EBA900;
 }
 
 .footer_end {
@@ -448,15 +474,30 @@ flex-grow: 0;
   
   /* Style pour le bouton de soumission */
   .btn {
-    background-color: #4CAF50;
+    transition: 0.3s;
+    background-color: #EBA900;
     color: white;
     padding: 12px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     margin-top: 10px;
+    
+  border:1px solid #EBA900 ;
   }
-  
+  .btn:hover {
+    transition: 0.3s;
+    background-color: #282525;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    
+  border:1px solid #EBA900 ;
+  }
+
   /* Style pour les messages d'erreur */
   .form-error {
     color: red;
@@ -487,11 +528,14 @@ flex-grow: 0;
 
 /* Style pour le titre de la page */
 .title_login {
-  width: 172px;
-  height: 37px;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 37px;
+font-family: 'ArponaSans';
+font-style: normal;
+font-weight: 900;
+font-size: 25px;
+line-height: 24px;
+/* identical to box height, or 96% */
+color: #8F00FE;
+
 }
 
 /* Style pour tous les champs de formulaire */
