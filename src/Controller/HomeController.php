@@ -33,9 +33,11 @@ class HomeController extends AbstractController
 
         foreach ($images as $image) {
             $data[] = [
+                'idImage' => $image->getId(),
                 'name' => $image->getName(),
                 'image' => $image->getImage(),
                 'users' => $image->getCreations()->toArray(),
+                'likes' => $image->getFavoris()->count()
             ];
         }
 
