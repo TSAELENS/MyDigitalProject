@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>{{ categorie.nom }}</h1>
+    <div>
+        {% for tatouage in categorie.tatouages %}
+            <div>
+                <img src="{{ tatouage.image }}" alt="{{ tatouage.nom }}">
+                <p>{{ tatouage.nom }}</p>
+                <p>{{ tatouage.description }}</p>
+                <p>Artiste : {{ tatouage.artiste }}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
