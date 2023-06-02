@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block content %}
+{% block body %}
     <h1>Styles de tatouages</h1>
     <ul>
         {% for categorie in categories %}
             <li>
                 <a href="{{ path('discover_gallery', { 'id': categorie.id }) }}">
-                    <img src="{{ categorie.image }}" alt="{{ categorie.nom }}">
-                    {{ categorie.nom }}
+                    {#<img src="{{ categorie.image }}" alt="{{ categorie.name }}">#}
+                    {{ categorie.name }}
                 </a>
             </li>
         {% endfor %}

@@ -3,12 +3,11 @@
 {% block content %}
     <h1>{{ categorie.nom }}</h1>
     <div>
-        {% for tatouage in categorie.tatouages %}
+        <h1>{{ categorie.name }}</h1>
+        {% for image in categorie.images %}
             <div>
-                <img src="{{ tatouage.image }}" alt="{{ tatouage.nom }}">
-                <p>{{ tatouage.nom }}</p>
-                <p>{{ tatouage.description }}</p>
-                <p>Artiste : {{ tatouage.artiste }}</p>
+                <img src="{{ image.path }}" alt="{{ image.name }}">
+                <p>{{ image.name }}</p>
             </div>
         {% endfor %}
     </div>

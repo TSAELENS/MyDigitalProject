@@ -5,17 +5,14 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Entity\Categories;
-
+use App\Repository\CategoriesRepository;
 
 class DiscoverController extends AbstractController
 {
-        /**
-     * @Route("/decouvrir", name="discover_categories")
-     */
-    public function categories(): Response
+    #[Route('/discover', name: 'app_discover')]
+    public function categories(CategoriesRepository $categoryRepository): Response
     {
-        $categories = $this->getDoctrine()->getRepository(Categories::class)->findAll();
+        $categories = $categoryRepository->findAll();
 
         return $this->render('discover/categories.html.twig', [
             'categories' => $categories,
@@ -23,11 +20,11 @@ class DiscoverController extends AbstractController
     }
 
     /**
-     * @Route("/decouvrir/{id}", name="discover_gallery")
+     * @Route("/discover/{id}", name="discover_gallery")
      */
-    public function gallery($id): Response
+    public function gallery($id, CategoriesRepository $categoryRepository): Response
     {
-        $categorie = $this->getDoctrine()->getRepository(Categories::class)->find($id);
+        $categorie = $categoryRepository->find($id);
 
         if (!$categorie) {
             throw $this->createNotFoundException('Catégorie non trouvée');
