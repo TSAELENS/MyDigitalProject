@@ -4,8 +4,13 @@
    <h1>Les profils des pro's</h1>
 
     <div class="search-bar">
-        <!-- Barre de recherche et boutons de filtres -->
-        <!-- Ajoute ici les champs de recherche et les boutons de filtres -->
+        <form class="search-form" action="{{ path('profils') }}" method="GET">
+            <img class="img_search" src="../upload/img/search.png" alt="Rechercher" type="submit">
+            <input class="search-input" type="text" placeholder="Recherche" name="q">
+            <button class="sort-btn" type="button">DISPONIBILITES</button>
+            <button class="sort-btn" type="button">SPECIALITE</button>
+            <button class="sort-btn" type="button">LOCALISATION</button>
+        </form>
     </div>
 
     <div class="profile-gallery">
