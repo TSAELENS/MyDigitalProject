@@ -6,17 +6,29 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Images;
+use App\Form\ImageUploadType;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 class ImagesController extends AbstractController
 {
     #[Route('/images/upload', name: 'app_images_upload')]
-    public function upload()
+    public function upload(Request $request, EntityManagerInterface $entityManager)
     {
-        return $this->render('images/index.html.twig', [
-            'controller_name' => 'ImagesController'
+        $image = new Images();
+        $form = $this->createForm(ImageUploadType::class, $image);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->persist($image);
+            $entityManager->flush();
+        }
+
+        return $this->render('images/upload.html.twig', [
+            'uploadForm' => $form->createView(),
         ]);
     }
+    
     // public function likeImage(Request $request, Images $image)
     // {
     //     // Récupérez l'utilisateur actuellement connecté (utilisez $this->getUser() si vous utilisez le composant de sécurité Symfony)

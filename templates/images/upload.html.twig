@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter une image{% endblock %}
+
+{% block body %}
+
+<div>
+    <h1>Ajouter une image</h1>
+
+    {{ form_start(uploadForm) }}
+        {{ form_row(uploadForm.name, {
+            label: 'Nom'
+        }) }}
+        {{ form_row(uploadForm.description, {
+            label: 'Description'
+        }) }}
+        {{ form_row(uploadForm.image, {
+            label: 'Image'
+        }) }}
+        {{ form_row(uploadForm.tags, {
+            label: 'Tags'
+        }) }}
+        {{ form_row(uploadForm.categories, {
+            label: 'Catégorie'
+        }) }}
+
+        <button type="submit" class="btn">Ajouter</button>
+    {{ form_end(uploadForm) }}
+</div>
+
+{% endblock %}
