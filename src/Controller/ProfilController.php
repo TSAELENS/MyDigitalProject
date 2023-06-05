@@ -6,20 +6,18 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\UsersRepository;
-use ReflectionMethod;
 use Symfony\Bundle\SecurityBundle\Security;
-use Symfony\Component\PropertyAccess\PropertyAccess;
 
 class ProfilController extends AbstractController
 {
     #[Route('/profil', name: 'profil')]
-    public function showProfil(UsersRepository $usersRepository, Security $security): Response
+    public function showProfil(Security $security): Response
     {
         $user = $security->getUser();
 
-    if (!$user) {
-        throw $this->createNotFoundException('Utilisateur non connecté.');
-    }
+        if (!$user) {
+            throw $this->createNotFoundException('Utilisateur non connecté.');
+        }
 
         return $this->render('profil/profil.html.twig', [
             'user' => $user,
@@ -34,17 +32,12 @@ class ProfilController extends AbstractController
             ->setParameter('role', '%ROLE_TATTLER%')
             ->getQuery()
             ->getResult();
-        
-        $accessor = PropertyAccess::createPropertyAccessor();
+
         $tatoueurs = [];
 
         foreach ($profils as $profil) {
             if (in_array('ROLE_TATTLER', $profil->getRoles())) {
-                $tatoueur = new \stdClass();
-                $tatoueur->last_name = $this->callPrivateMethod($profil, 'getLastName');
-                $tatoueur->first_name = $this->callPrivateMethod($profil, 'getFirstName');
-                $tatoueur->city = $this->callPrivateMethod($profil, 'getCity');
-                $tatoueurs[] = $tatoueur;
+                $tatoueurs[] = $profil;
             }
         }
 
@@ -52,12 +45,4 @@ class ProfilController extends AbstractController
             'tatoueurs' => $tatoueurs,
         ]);
     }
-
-    private function callPrivateMethod($object, $methodName)
-    {
-        $reflectionMethod = new ReflectionMethod(get_class($object), $methodName);
-        $reflectionMethod->setAccessible(true);
-        return $reflectionMethod->invoke($object);
-    }
-
 }
