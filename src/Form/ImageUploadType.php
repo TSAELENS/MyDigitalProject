@@ -47,7 +47,7 @@ class ImageUploadType extends AbstractType
             ->add('categories', EntityType::class, [
                 'class' => Categories::class,
                 'multiple' => true,
-                'expanded' => true,
+                'expanded' => false,
             ])
             ->add('creations', HiddenType::class, [
                 'required' => false,
