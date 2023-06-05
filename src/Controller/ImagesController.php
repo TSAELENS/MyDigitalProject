@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Images;
 use App\Form\ImageUploadType;
@@ -16,7 +15,12 @@ class ImagesController extends AbstractController
     public function upload(Request $request, EntityManagerInterface $entityManager)
     {
         $image = new Images();
-        $form = $this->createForm(ImageUploadType::class, $image);
+
+        $uploadDirectory = 'public/upload/img/';
+
+        $form = $this->createForm(ImageUploadType::class, $image, [
+                'upload_directory' => $uploadDirectory,
+        ]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -26,6 +30,7 @@ class ImagesController extends AbstractController
 
         return $this->render('images/upload.html.twig', [
             'uploadForm' => $form->createView(),
+            'upload_directory' => 'public/upload/img/',
         ]);
     }
     
