@@ -16,7 +16,7 @@ class ImagesController extends AbstractController
     {
         $image = new Images();
 
-        $uploadDirectory = 'public/upload/img/';
+        $uploadDirectory = 'upload/img/';
 
         $form = $this->createForm(ImageUploadType::class, $image, [
                 'upload_directory' => $uploadDirectory,
