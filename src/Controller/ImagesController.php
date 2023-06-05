@@ -30,7 +30,7 @@ class ImagesController extends AbstractController
 
         return $this->render('images/upload.html.twig', [
             'uploadForm' => $form->createView(),
-            'upload_directory' => 'public/upload/img/',
+            'upload_directory' => 'upload/img/',
         ]);
     }
     

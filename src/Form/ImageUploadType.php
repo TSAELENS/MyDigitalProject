@@ -73,7 +73,7 @@ class ImageUploadType extends AbstractType
             $slugify = new Slugify();
 
             $uploadedFile = $form->get('image')->getData();
-            $uploadDirectory = $form->getConfig()->getOption('upload_directory'); // Récupération de l'option personnalisée
+            $uploadDirectory = $form->getConfig()->getOption('upload_directory');
 
             $filename = md5(uniqid()) . '.' . $uploadedFile->getClientOriginalExtension();
 
