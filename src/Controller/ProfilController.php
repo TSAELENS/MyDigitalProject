@@ -7,10 +7,25 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\UsersRepository;
 use ReflectionMethod;
+use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 
 class ProfilController extends AbstractController
 {
+    #[Route('/profil', name: 'profil')]
+    public function showProfil(UsersRepository $usersRepository, Security $security): Response
+    {
+        $user = $security->getUser();
+
+    if (!$user) {
+        throw $this->createNotFoundException('Utilisateur non connecté.');
+    }
+
+        return $this->render('profil/profil.html.twig', [
+            'user' => $user,
+        ]);
+    }
+
     #[Route('/tatoueurs', name: 'tatoueurs')]
     public function index(UsersRepository $usersRepository): Response
     {

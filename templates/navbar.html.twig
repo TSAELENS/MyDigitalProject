@@ -18,7 +18,7 @@
   </nav>
   <div class="account">
     {% if app.user %}
-        <a href="#">Mon compte</a>
+        <a href="profil">Mon compte</a>
         <a href="/logout">Déconnexion</a>
     {% else %}
         <a href="{{ path("app_login") }}" class="btn-connexion">Se connecter</a>
