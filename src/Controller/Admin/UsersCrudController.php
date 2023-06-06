@@ -38,7 +38,8 @@ class UsersCrudController extends AbstractCrudController
         yield EmailField::new('email');
         yield TextField::new('password')
             ->setFormType(PasswordType::class)
-            ->onlyOnForms();
+            ->onlyOnForms()
+            ->setRequired(false);
         yield ChoiceField::new('roles')
             ->allowMultipleChoices()
             ->renderAsBadges([
@@ -70,11 +71,32 @@ class UsersCrudController extends AbstractCrudController
         /** @var User $user */
         $user = $entityInstance;
 
+    if ($user->getPassword() === null) {
+        $user->setPassword($user->getPassword());
+    } else {
         $plainPassword = $user->getPassword();
         $hashedPassword = $this->passwordHasher->hashPassword($user, $plainPassword);
 
         $user->setPassword($hashedPassword);
+    }
 
         parent::persistEntity($entityManager, $entityInstance);
+    }
+
+    public function updateEntity(EntityManagerInterface $entityManager, $entityInstance): void
+    {
+        /** @var User $user */
+        $user = $entityInstance;
+
+        if ($user->getPassword() === null) {
+            $user->setPassword($user->getPassword());
+        } else {
+            $plainPassword = $user->getPassword();
+            $hashedPassword = $this->passwordHasher->hashPassword($user, $plainPassword);
+
+            $user->setPassword($hashedPassword);
+        }
+
+        parent::updateEntity($entityManager, $entityInstance);
     }
 }
