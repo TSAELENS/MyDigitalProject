@@ -6,7 +6,7 @@
    <h1>Les profils des pro's</h1>
 
     <div class="search-bar">
-        <form class="search-form" action="{{ path('tatoueurs') }}" method="GET">
+        <form class="search-form" action="{{ path('tattler') }}" method="GET">
             <img class="img_search" src="../upload/img/search.png" alt="Rechercher" type="submit">
             <input class="search-input" type="text" placeholder="Recherche" name="q">
             <button class="sort-btn" type="button">DISPONIBILITES</button>
@@ -21,7 +21,7 @@
                {# <img src="{{ profil.photo }}" alt="Photo de profil"> #}
                 <h2>{{ tatoueur.lastname }} {{ tatoueur.firstname }}</h2>
                 <p>Localisation: {{ tatoueur.city }}</p>
-                <p>J'aime: {#{{ profil.nbJaime }}#}</p>
+                <p>J'aime: {{ tatoueur.likeCount }}</p>
                 <p>Impressions: {#{{ profil.nbImpressions }}#}</p>
                 <p>Abonnés: {#{{ profil.nbAbonnes }}#}</p>
             </div>

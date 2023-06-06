@@ -2,10 +2,12 @@
 
 namespace App\Controller;
 
+use App\Repository\ImagesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\UsersRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\SecurityBundle\Security;
 
 class ProfilController extends AbstractController
@@ -25,7 +27,7 @@ class ProfilController extends AbstractController
     }
 
     #[Route('/tattler', name: 'tattler')]
-    public function index(UsersRepository $usersRepository): Response
+    public function index(UsersRepository $usersRepository, EntityManagerInterface $entityManager): Response
     {
         $profils = $usersRepository->createQueryBuilder('u')
             ->where('u.roles LIKE :role')
@@ -37,6 +39,12 @@ class ProfilController extends AbstractController
 
         foreach ($profils as $profil) {
             if (in_array('ROLE_TATTLER', $profil->getRoles())) {
+                $likeCount = 0;
+                $images = $profil->getCreations();
+                foreach ($images as $image) {
+                    $likeCount += $image->getFavoris()->count();
+                }
+                $profil->likeCount = $likeCount;
                 $tatoueurs[] = $profil;
             }
         }
