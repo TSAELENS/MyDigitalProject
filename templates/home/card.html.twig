@@ -1,19 +1,21 @@
-<div class="card_container">
-    <img class="card_img" src="{{ asset('../upload/img/tatoo.png') }}">
-    <div class="card_bottom">
-        <div class="card_text">
-            <h3 class="card_title">{{ item.name }}</h3>
-            {% for user in item.users %}
-                <p class="card_creator">{{ user.getFirstName }}{{ user.getLastName }}</p>
-            {% endfor %}
-        </div>
-        <div class="card-icon">
-            <div class="card_share">
 
+    <div class="card_container">
+        <img class="card_img" src="{{ asset('../upload/img/tatoo.png') }}">
+        <div class="card_bottom">
+            <div class="card_text">
+                <h3 class="card_title">{{ item.name }}</h3>
+                {% for user in item.users %}
+                    <p class="card_creator">{{ user.getFirstName }}{{ user.getLastName }}</p>
+                {% endfor %}
             </div>
-            <div class="card_like">
-
+            <div class="card-icon">
+                <div class="card_share">
+                    <img class="card_img_share" src="{{ asset('../upload/img/partager.png') }}">
+                </div>
+                <div class="card_like">
+                    <img class="card_img_like" src="{{ asset('../upload/img/like.png') }}">
+                </div>
             </div>
         </div>
     </div>
-</div>
+

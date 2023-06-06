@@ -24,7 +24,7 @@ class ProfilController extends AbstractController
         ]);
     }
 
-    #[Route('/tatoueurs', name: 'tatoueurs')]
+    #[Route('/tattler', name: 'tattler')]
     public function index(UsersRepository $usersRepository): Response
     {
         $profils = $usersRepository->createQueryBuilder('u')
