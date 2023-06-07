@@ -18,8 +18,8 @@
   </nav>
   <div class="account">
     {% if app.user %}
-        <a href="profil">Mon compte</a>
-        <a href="/logout">Déconnexion</a>
+        <a href="profil" class="btn-connexion">Mon compte</a>
+        <a href="/logout" class="btn-inscription">Déconnexion</a>
     {% else %}
         <a href="{{ path("app_login") }}" class="btn-connexion">Se connecter</a>
         <a href="/register" class="btn-inscription">S'inscrire</a>
