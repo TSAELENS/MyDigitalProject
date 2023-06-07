@@ -3,11 +3,11 @@
 {% block title %}Mon profile !{% endblock %}
 
 {% block body %}
-<div>
-    {{ user.firstname }} {{ user.lastname }}
-</div>
-<div>
-    <div>
+<div class="profile-container">
+    <div class="profile-name">
+        {{ user.firstname }} {{ user.lastname }}
+    </div>
+    <div class="profile-buttons">
         <button>Travaux</button>
         <button>Annonces</button>
         <button>Mur de style</button>
@@ -15,23 +15,24 @@
         <button>À propos</button>
         <button>Posts likés</button>
     </div>
-    <div>
+    <div class="profile-content">
         <div>
-            <a href="{{ path('app_images_upload') }}">Ajouter</a>
-            {% for creation in creations %}
-                <img src="{{ creation.image }}" alt="{{ creation.name }}">
-            {% endfor %}
+            <a href="{{ path('app_images_upload') }}" class="add-button">Ajouter</a>
+            <div class="creations">
+                {% for creation in creations %}
+                    <img src="{{ '../upload/img/' ~ creation.image }}" alt="{{ creation.name }}">
+                {% endfor %}
+            </div>
         </div>
-        <div></div>
-        <div></div>
-        <div>
+  
+        <div class="profile-stats">
             <p>1000 Vues</p>
             <p>1000 Commentaires</p>
             <p>1000 Visites</p>
             <p>{{ likesCount }} J'aimes</p>
         </div>
-        <div></div>
-        <div>
+
+        <div class="profile-related">
             {% include "home/list.html.twig" with {data} %}
         </div>
     </div>
