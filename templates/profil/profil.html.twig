@@ -3,5 +3,37 @@
 {% block title %}Mon profile !{% endblock %}
 
 {% block body %}
-{{ user.firstname }} {{ user.lastname }}
+<div>
+    {{ user.firstname }} {{ user.lastname }}
+</div>
+<div>
+    <div>
+        <button>Travaux</button>
+        <button>Annonces</button>
+        <button>Mur de style</button>
+        <button>Stats</button>
+        <button>À propos</button>
+        <button>Posts likés</button>
+    </div>
+    <div>
+        <div>
+            <a href="{{ path('app_images_upload') }}">Ajouter</a>
+            {% for creation in creations %}
+                <img src="{{ creation.image }}" alt="{{ creation.name }}">
+            {% endfor %}
+        </div>
+        <div></div>
+        <div></div>
+        <div>
+            <p>1000 Vues</p>
+            <p>1000 Commentaires</p>
+            <p>1000 Visites</p>
+            <p>{{ likesCount }} J'aimes</p>
+        </div>
+        <div></div>
+        <div>
+            {% include "home/list.html.twig" with {data} %}
+        </div>
+    </div>
+</div>
 {% endblock %}

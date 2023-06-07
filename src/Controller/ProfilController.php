@@ -2,12 +2,10 @@
 
 namespace App\Controller;
 
-use App\Repository\ImagesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\UsersRepository;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\SecurityBundle\Security;
 
 class ProfilController extends AbstractController
@@ -21,13 +19,36 @@ class ProfilController extends AbstractController
             throw $this->createNotFoundException('Utilisateur non connecté.');
         }
 
+        $creations = $user->getCreations();
+
+        $likesCount = 0;
+        foreach ($creations as $creation) {
+            $likesCount += $creation->getFavoris()->count();
+        }
+
+        $creationsLiked = $user->getFavoris();
+
+        $data = [];
+        foreach ($creationsLiked as $creationLiked) {
+            $data[] = [
+                'idImage' => $creationLiked->getId(),
+                'name' => $creationLiked->getName(),
+                'image' => $creationLiked->getImage(),
+                'users' => $creationLiked->getCreations()->toArray(),
+                'likes' => $creationLiked->getFavoris()->count()
+            ];
+        }
+
         return $this->render('profil/profil.html.twig', [
             'user' => $user,
+            'creations' => $creations,
+            'likesCount' => $likesCount,
+            'data' => $data,
         ]);
     }
 
     #[Route('/tattler', name: 'tattler')]
-    public function index(UsersRepository $usersRepository, EntityManagerInterface $entityManager): Response
+    public function index(UsersRepository $usersRepository): Response
     {
         $profils = $usersRepository->createQueryBuilder('u')
             ->where('u.roles LIKE :role')
