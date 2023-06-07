@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Categories;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ColorField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
@@ -22,5 +23,8 @@ class CategoriesCrudController extends AbstractCrudController
         yield SlugField::new('slug')
         ->setTargetFieldName('name')
         ->onlyOnForms();
+        yield ImageField::new('background')
+            ->setUploadDir('/public/upload/categories/')
+            ->setBasePath('upload/categories/');
     }
 }

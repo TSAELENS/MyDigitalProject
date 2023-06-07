@@ -58,6 +58,7 @@ class UsersCrudController extends AbstractCrudController
         yield TextField::new('city');
         yield CountryField::new('country');
         yield TelephoneField::new('phone');
+        yield TextField::new('description');
         yield DateField::new('creation_date')
             ->hideOnForm();
         yield DateField::new('update_date')
