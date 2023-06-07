@@ -75,6 +75,9 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, Timest
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $update_date = null;
 
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $description = null;
+
     public function __construct()
     {
         $this->establishments = new ArrayCollection();
@@ -397,5 +400,17 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, Timest
     public function __toString(): string
     {
         return $this->last_name;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
     }
 }

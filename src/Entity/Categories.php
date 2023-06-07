@@ -27,6 +27,9 @@ class Categories
     #[ORM\ManyToMany(targetEntity: Images::class, mappedBy: 'categories')]
     private Collection $images;
 
+    #[ORM\Column(length: 255)]
+    private ?string $background = null;
+
     public function __construct()
     {
         $this->images = new ArrayCollection();
@@ -105,5 +108,15 @@ class Categories
         return $this->name;
     }
 
+    public function getBackground(): ?string
+    {
+        return $this->background;
+    }
 
+    public function setBackground(string $background): self
+    {
+        $this->background = $background;
+
+        return $this;
+    }
 }
