@@ -745,3 +745,64 @@ margin-left: 5px;
     justify-content: flex-start;
   }
 }
+
+/* DISCOVER */
+
+/* Styles pour le conteneur des catégories */
+.categorie_container {
+    display: flex;
+    flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;  
+  column-count: 2; /* Divise les boutons de catégories en deux colonnes */
+  column-gap: 10px; /* Espace entre les colonnes */
+  width: 100%;
+}
+.categoriebtn_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 120px;
+  
+  width: 400px;
+  height: 260px;
+  
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('../upload/img/categorie1.png');
+  /* Ombre card */
+  
+  box-shadow: 0px 0px 80px rgba(0, 0, 0, 0.08), 0px 0px 46.8519px rgba(0, 0, 0, 0.0607407), 0px 0px 25.4815px rgba(0, 0, 0, 0.0485926), 0px 0px 13px rgba(0, 0, 0, 0.04), 0px 0px 6.51852px rgba(0, 0, 0, 0.0314074), 0px 0px 3.14815px rgba(0, 0, 0, 0.0192593);
+  border-radius: 8px;
+  margin: 40px;
+  list-style-type: none; /* Supprime les points de liste */
+
+  background-size: cover; /* Ajuste la taille de l'image de fond */
+  background-position: center; /* Centre l'image de fond */
+}
+
+
+/* Styles pour les boutons de catégories */
+.btn_categorie {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  
+  width: 195px;
+  height: 100px;
+  
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6.5px);
+  /* Note: backdrop-filter has minimal browser support */
+  
+  border-radius: 8px;
+  text-decoration: none;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.btn_categorie:hover {
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6.5px);
+}
+
+
