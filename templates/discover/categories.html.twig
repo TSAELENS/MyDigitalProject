@@ -3,7 +3,7 @@
 {% block body %}
     <ul class="categorie_container">
         {% for categorie in categories %}
-            <div class="categoriebtn_container" style="background-image: url('{{ asset('../public/upload/categories/' ~ categorie.background) }}')">
+            <div class="categoriebtn_container" style="background-image: url('{{ asset('../upload/categories/' ~ categorie.background) }}')">
                 <li>
                     <a class="btn_categorie" href="{{ path('discover_gallery', { 'id': categorie.id }) }}">
                         {{ categorie.name }}

@@ -757,6 +757,7 @@ margin-left: 5px;
   column-count: 2; /* Divise les boutons de catégories en deux colonnes */
   column-gap: 10px; /* Espace entre les colonnes */
   width: 100%;
+  margin-left: -2%;
 }
 .categoriebtn_container {
   display: flex;
