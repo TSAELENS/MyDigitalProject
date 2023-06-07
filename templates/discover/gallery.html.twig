@@ -1,14 +1,8 @@
 {% extends 'base.html.twig' %}
 
-{% block content %}
-    <h1>{{ categorie.nom }}</h1>
+{% block body %}
     <div>
         <h1>{{ categorie.name }}</h1>
-        {% for image in categorie.images %}
-            <div>
-                <img src="{{ image.path }}" alt="{{ image.name }}">
-                <p>{{ image.name }}</p>
-            </div>
-        {% endfor %}
+        {% include 'home/list.html.twig' with {data} %}
     </div>
 {% endblock %}

@@ -22,16 +22,30 @@ class DiscoverController extends AbstractController
     /**
      * @Route("/discover/{id}", name="discover_gallery")
      */
-    public function gallery($id, CategoriesRepository $categoryRepository): Response
+    public function gallery($id, CategoriesRepository $categoriesRepository): Response
     {
-        $categorie = $categoryRepository->find($id);
+        $category = $categoriesRepository->find($id);
 
-        if (!$categorie) {
+        if (!$category) {
             throw $this->createNotFoundException('Catégorie non trouvée');
         }
 
+        $images = $category->getImages();
+
+        $data = [];
+        foreach ($images as $image) {
+            $data[] = [
+                'idImage' => $image->getId(),
+                'name' => $image->getName(),
+                'image' => $image->getImage(),
+                'users' => $image->getCreations()->toArray(),
+                'likes' => $image->getFavoris()->count()
+            ];
+        }
+
         return $this->render('discover/gallery.html.twig', [
-            'categorie' => $categorie,
+            'categorie' => $category,
+            'data' => $data,
         ]);
     }
 }
