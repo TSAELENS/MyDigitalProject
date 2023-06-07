@@ -47,8 +47,13 @@ class ProfilController extends AbstractController
         ]);
     }
 
+<<<<<<< Updated upstream
     #[Route('/tattler', name: 'tattler')]
     public function index(UsersRepository $usersRepository): Response
+=======
+    #[Route('/tatoueurs', name: 'tatoueurs')]
+    public function index(UsersRepository $usersRepository, EntityManagerInterface $entityManager): Response
+>>>>>>> Stashed changes
     {
         $profils = $usersRepository->createQueryBuilder('u')
             ->where('u.roles LIKE :role')
