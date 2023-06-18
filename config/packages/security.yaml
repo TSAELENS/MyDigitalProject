@@ -38,6 +38,7 @@ security:
         - { path: ^/managment, roles: ROLE_ADMIN }
         - { path: ^/creation, roles: ROLE_TATTLER }
         - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/images, roles: ROLE_USER }
 
     role_hierarchy:
         ROLE_TATTLER: ROLE_USER

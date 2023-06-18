@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ImagesController extends AbstractController
 {
-    #[Route('/images/upload', name: 'app_images_upload')]
+    #[Route('/creation', name: 'app_images_upload')]
     public function upload(Request $request, EntityManagerInterface $entityManager)
     {
         $image = new Images();
