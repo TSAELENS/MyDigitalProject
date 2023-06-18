@@ -4,28 +4,35 @@
 
 {% block body %}
 
-<div>
-    <h1>Ajouter une image</h1>
+<div class="upload-container">
+    <h1 class="upload-title">Ajouter une image</h1>
 
-    {{ form_start(uploadForm) }}
-        {{ form_row(uploadForm.name, {
-            label: 'Nom'
-        }) }}
-        {{ form_row(uploadForm.description, {
-            label: 'Description'
-        }) }}
-        {{ form_row(uploadForm.image, {
-            label: 'Image'
-        }) }}
-        {{ form_row(uploadForm.tags, {
-            label: 'Tags'
-        }) }}
-        {{ form_row(uploadForm.categories, {
-            label: 'Catégorie'
-        }) }}
+    <div class="upload-form">
+        {{ form_start(uploadForm) }}
+            <div class="form-group">
+                {{ form_label(uploadForm.name, 'Nom', {'label_attr': {'class': 'form-label'}}) }}
+                {{ form_widget(uploadForm.name, {'attr': {'class': 'form-input'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(uploadForm.description, 'Description', {'label_attr': {'class': 'form-label'}}) }}
+                {{ form_widget(uploadForm.description, {'attr': {'class': 'form-input'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(uploadForm.image, 'Image', {'label_attr': {'class': 'form-label'}}) }}
+                {{ form_widget(uploadForm.image, {'attr': {'class': 'form-input'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(uploadForm.tags, 'Tags', {'label_attr': {'class': 'form-label'}}) }}
+                {{ form_widget(uploadForm.tags, {'attr': {'class': 'form-input'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(uploadForm.categories, 'Catégorie', {'label_attr': {'class': 'form-label'}}) }}
+                {{ form_widget(uploadForm.categories, {'attr': {'class': 'form-input'}}) }}
+            </div>
 
-        <button type="submit" class="btn">Ajouter</button>
-    {{ form_end(uploadForm) }}
+            <button type="submit" class="btn btn-submit">Ajouter</button>
+        {{ form_end(uploadForm) }}
+    </div>
 </div>
 
 {% endblock %}

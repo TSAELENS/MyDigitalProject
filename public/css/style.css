@@ -227,6 +227,10 @@ footer {
   padding: 20px 0;
 }
 
+.titre_footer{
+  font-size: 30px;
+}
+
 .footer_title {
   display: flex;
   align-items: center;
@@ -510,10 +514,10 @@ background: #332F2F;
 .bloc_register {
     display: flex;
     justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    min-height: 70vh;
     margin: 0 auto;
     width: 80%;
+    margin-top:100px;
   }
   
 /* Style pour le conteneur de gauche */
@@ -909,4 +913,61 @@ margin-left: 5px;
   margin-bottom: 5px;
 }
 
+
+/* UPLOAD Images*/
+
+.upload-container {
+  width: 400px;
+  margin: 0 auto;
+
+}
+
+
+.upload-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.upload-form .form-group {
+  margin-bottom: 20px;
+}
+
+.upload-form .form-label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.upload-form .form-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.upload-form .btn-submit {
+  display: flex;
+  padding: 10px 20px;
+  color: white;
+  border: 1px solid #282525;
+  background-color: #EBA900;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+}
+
+.upload-form .btn-submit:hover {
+  background-color: #282525;
+  border: 1px solid #EBA900;
+}
+
+
+
+
+
+
+
 /* Modifier les styles selon vos préférences */
+
