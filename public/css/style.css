@@ -479,7 +479,7 @@ footer button[type="submit"]:hover {
   flex: auto; /* Modifier flex-grow en flex-auto */
   order: 1; /* Modifier l'ordre de 0 à 1 */
 width:50%;
-
+color: #fff;
 background: #332F2F;
 }
 
