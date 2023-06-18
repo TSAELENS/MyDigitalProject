@@ -17,7 +17,7 @@
     </div>
     <div class="profile-content">
         <div>
-            <a href="{{ path('app_images_upload') }}" class="add-button">Ajouter</a>
+            <a href="{{ path('creation') }}" class="add-button">Ajouter</a>
             <div class="creations">
                 {% for creation in creations %}
                     <img src="{{ '../upload/img/' ~ creation.image }}" alt="{{ creation.name }}">
