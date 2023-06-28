@@ -16,6 +16,7 @@
         <button>Posts likés</button>
     </div>
     <div class="profile-content">
+    {% if is_granted('ROLE_TATTLER') %}
         <div>
             <a href="{{ path('app_images_upload') }}" class="add-button">Ajouter</a>
             <div class="creations">
@@ -24,6 +25,7 @@
                 {% endfor %}
             </div>
         </div>
+    {% endif %}
   
         <div class="profile-stats">
             <p>0 Vues</p>

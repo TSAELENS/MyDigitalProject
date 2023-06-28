@@ -26,8 +26,13 @@ class ImagesController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $user = $this->getUser();
+            $image->addCreation($user);
+
             $entityManager->persist($image);
             $entityManager->flush();
+
+            return $this->redirectToRoute('profil');
         }
 
         return $this->render('images/upload.html.twig', [
